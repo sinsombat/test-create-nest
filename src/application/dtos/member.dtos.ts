@@ -1,6 +1,6 @@
 import { ApiProperty } from '@nestjs/swagger';
 import { IsOptional } from 'class-validator';
-import { Member } from 'src/domain/services/member/entity/member.entity';
+import { Member } from 'src/application/entity/member.entity';
 
 export class GetMemberResponseDto {
   @ApiProperty({ example: '1234', description: 'Member Id' })

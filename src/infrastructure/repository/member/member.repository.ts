@@ -2,7 +2,7 @@ import { Injectable } from '@nestjs/common';
 import { Member } from '@prisma/client';
 import { IMemberRepository } from './IMember.repository';
 import { PrismaService } from 'src/infrastructure/persistence/prisma/prisma.service';
-import { CreateMemberSchema } from 'src/domain/services/member/schema/member.schema';
+import { CreateMemberSchema } from 'src/application/schema/member.schema';
 // import { CreateMemberSchema } from 'src/domain/services/member/schema/member.schema';
 
 @Injectable()

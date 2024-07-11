@@ -1,6 +1,6 @@
 import { Member } from '@prisma/client';
 import { CreateMemberResponseDto } from 'src/application/dtos/member.dtos';
-import { CreateMemberSchema } from 'src/domain/services/member/schema/member.schema';
+import { CreateMemberSchema } from 'src/application/schema/member.schema';
 
 export interface IMemberRepository {
   findAll(): Promise<Member[]>;

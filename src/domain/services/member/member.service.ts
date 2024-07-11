@@ -1,13 +1,14 @@
 import { Inject, Injectable } from '@nestjs/common';
 import { IMemberServices } from './IMember.services';
-import { CreateMemberSchema } from './schema/member.schema';
+import { CreateMemberSchema } from '../../../application/schema/member.schema';
 import { CreateMemberResponseDto, GetMemberResponseDto } from 'src/application/dtos/member.dtos';
 import { IMemberRepository } from 'src/infrastructure/repository/member/IMember.repository';
+import { MEMBER_REPOSITORY } from 'src/common/shared/common';
 
 @Injectable()
 export class MemberService implements IMemberServices {
   constructor(
-    @Inject('IMemberRepository')
+    @Inject(MEMBER_REPOSITORY)
     private readonly _memberRepo: IMemberRepository,
   ) {}
 
