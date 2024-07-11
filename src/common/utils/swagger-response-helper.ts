@@ -10,14 +10,15 @@ export function ApiCommonResponses(domain: string) {
       const modifiedExample = {
         StatusCode: response.content['application/json'].example.statusCode,
         Domain: domain,
-        Message: response.content['application/json'].example.message
+        Message: response.content['application/json'].example.message,
       };
 
       decorators.push(
         ApiResponse({
           ...response,
           content: {
-            ...response.content, 'application/json': {
+            ...response.content,
+            'application/json': {
               ...response.content['application/json'],
               example: modifiedExample,
             },

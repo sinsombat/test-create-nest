@@ -1,11 +1,15 @@
 export class Member {
-    id: string;
-    name: string;
-    email: string;
+  memberId?: string;
+  name: string;
+  email: string;
+  age?: string;
+  createdAt?: Date;
 
-    constructor(id: string, name: string, email: string) {
-        this.id = id;
-        this.name = name;
-        this.email = email;
-    }
+  constructor(memberId: string, name: string, email: string, age: string) {
+    this.memberId = memberId;
+    this.name = name;
+    this.email = email;
+    this.age = age;
+    this.createdAt = this.createdAt;
+  }
 }
