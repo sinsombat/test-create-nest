@@ -18,7 +18,7 @@ export class PrismaService extends PrismaClient implements OnModuleInit, OnModul
 
   private async runMigrations() {
     try {
-      const { stdout, stderr } = await execAsync('npx prisma migrate deploy --schema=src/infrastructure/persistence/prisma/schema.prisma');
+      const { stdout, stderr } = await execAsync('npx prisma migrate dev --name init --schema=src/infrastructure/persistence/prisma/schema.prisma');
       if (stdout) console.log(stdout);
       if (stderr) console.error(stderr);
     } catch (error) {
