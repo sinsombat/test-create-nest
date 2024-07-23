@@ -6,7 +6,7 @@
   "private": true,
   "license": "UNLICENSED",
   "scripts": {
-    "prisma:migration": "npx prisma migrate dev --name $MIGRATION_NAME",
+    "prisma:migration": "npx prisma migrate dev --name $NAME",
     "prepare": "husky install",
     "postinstall": "npx husky add .husky/pre-commit 'npx lint-staged'",
     "build": "nest build",
