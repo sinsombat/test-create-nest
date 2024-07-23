@@ -1,6 +1,6 @@
 import { Inject, Injectable } from '@nestjs/common';
 import { IMemberServices } from './IMember.services';
-import { CreateMemberSchema } from '../../../application/schema/member.schema';
+import { CreateMemberSchema } from '../../../domain/models/schema/member.schema';
 import { CreateMemberResponseDto, GetMemberResponseDto } from 'src/application/dtos/member.dtos';
 import { IMemberRepository } from 'src/infrastructure/repository/member/IMember.repository';
 import { MEMBER_REPOSITORY } from 'src/common/shared/common';

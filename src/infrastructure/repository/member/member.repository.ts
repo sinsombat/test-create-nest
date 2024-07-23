@@ -1,23 +1,23 @@
 import { Injectable } from '@nestjs/common';
-import { Member } from '@prisma/client';
+import { member } from '@prisma/client';
 import { IMemberRepository } from './IMember.repository';
 import { PrismaService } from 'src/infrastructure/persistence/prisma/prisma.service';
-import { CreateMemberSchema } from 'src/application/schema/member.schema';
+import { CreateMemberSchema } from 'src/domain/models/schema/member.schema';
 // import { CreateMemberSchema } from 'src/domain/services/member/schema/member.schema';
 
 @Injectable()
 export class MemberRepository implements IMemberRepository {
   constructor(private readonly prisma: PrismaService) {}
 
-  async findAll(): Promise<Member[]> {
+  async findAll(): Promise<member[]> {
     return this.prisma.member.findMany();
   }
 
-  async findById(memberId: string): Promise<Member | null> {
+  async findById(memberId: string): Promise<member | null> {
     return this.prisma.member.findUnique({ where: { memberId: memberId } });
   }
 
-  async create(data: CreateMemberSchema): Promise<Member> {
+  async create(data: CreateMemberSchema): Promise<member> {
     const memberId = Math.floor(10000 + Math.random() * 90000).toString();
     return this.prisma.member.create({
       data: {
@@ -27,7 +27,7 @@ export class MemberRepository implements IMemberRepository {
     });
   }
 
-  async update(id: number, member: Partial<Member>): Promise<Member> {
+  async update(id: number, member: Partial<member>): Promise<member> {
     return this.prisma.member.update({ where: { id }, data: member });
   }
 }

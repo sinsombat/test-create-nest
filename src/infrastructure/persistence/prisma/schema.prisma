@@ -13,7 +13,7 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model Member {
+model member {
   id        Int      @id @default(autoincrement())
   memberId  String   @unique
   name      String
@@ -23,8 +23,20 @@ model Member {
   updatedAt DateTime @updatedAt
 }
 
-model User {
+model user {
   id    Int     @id @default(autoincrement())
   email String  @unique
   name  String?
+}
+
+model customer {
+  id    Int     @id @default(autoincrement())
+  email String  @unique
+  name  String?
+}
+
+model earn {
+  id    Int     @id @default(autoincrement())
+  uid   String?
+  price Int
 }

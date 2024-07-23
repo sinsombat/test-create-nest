@@ -1,5 +1,5 @@
 import { Module } from '@nestjs/common';
-import { MemberService } from '../services/member/member.service';
+import { MemberService } from '../../application/services/member/member.service';
 import { MemberController } from 'src/application/controller/member.controller';
 import { RepositoriesModule } from 'src/infrastructure/repository/repositories.module';
 import { MEMBER_SERVICE } from 'src/common/shared/common';
