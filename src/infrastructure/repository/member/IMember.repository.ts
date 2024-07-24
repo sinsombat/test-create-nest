@@ -1,10 +1,10 @@
-import { Member } from '@prisma/client';
+import { member } from '@prisma/client';
 import { CreateMemberResponseDto } from 'src/application/dtos/member.dtos';
-import { CreateMemberSchema } from 'src/application/schema/member.schema';
+import { CreateMemberSchema } from 'src/domain/models/schema/member.schema';
 
 export interface IMemberRepository {
-  findAll(): Promise<Member[]>;
-  findById(memberId: string): Promise<Member | null>;
+  findAll(): Promise<member[]>;
+  findById(memberId: string): Promise<member | null>;
   create(member: CreateMemberSchema): Promise<CreateMemberResponseDto>;
-  update(id: number, member: Partial<Member>): Promise<Member>;
+  update(id: number, member: Partial<member>): Promise<member>;
 }
