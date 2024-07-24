@@ -1,9 +1,9 @@
 import { Inject, Injectable } from '@nestjs/common';
 import { IMemberServices } from './IMember.services';
-import { CreateMemberSchema } from '../../../application/schema/member.schema';
-import { CreateMemberResponseDto, GetMemberResponseDto } from 'src/application/dtos/member.dtos';
-import { IMemberRepository } from 'src/infrastructure/repository/member/IMember.repository';
 import { MEMBER_REPOSITORY } from 'src/common/shared/common';
+import { IMemberRepository } from 'src/infrastructure/repository/member/IMember.repository';
+import { CreateMemberResponseDto, GetMemberResponseDto } from 'src/application/dtos/member.dtos';
+import { CreateMemberSchema } from 'src/domain/models/schema/member.schema';
 
 @Injectable()
 export class MemberService implements IMemberServices {
@@ -19,6 +19,6 @@ export class MemberService implements IMemberServices {
 
   async createMember(data: CreateMemberSchema): Promise<CreateMemberResponseDto> {
     const createMember = await this._memberRepo.create(data);
-    return CreateMemberResponseDto.fromEntity(createMember);
+    return createMember ? CreateMemberResponseDto.fromEntity(createMember) : null;
   }
 }
